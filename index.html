@@ -1,385 +1,75 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voice. Risk. Revision. Release. A Writing Workshop with Erin Lane</title>
+<title>Voice. Risk. Revise. Release. A Writing Workshop with Erin Lane</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-
-  body {
-    background: #fffdf9;
-    color: #1a1208;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  /* HERO - dark bg, light text */
-  .hero {
-    background: #1a1208;
-    color: #fffdf9;
-    padding: 5rem 2rem 4rem;
-    text-align: center;
-  }
-
-  .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #e8714a;
-    margin-bottom: 2.5rem;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 8vw, 6rem);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: #fffdf9;
-    margin-bottom: 1.5rem;
-  }
-
+  body { background: #fffdf9; color: #1a1208; font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.6; }
+  .hero { background: #1a1208; color: #fffdf9; padding: 5rem 2rem 4rem; text-align: center; }
+  .hero-eyebrow { font-family: "DM Mono", monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #e8714a; margin-bottom: 2.5rem; text-align: center; }
+  .hero h1 { font-family: "Playfair Display", serif; font-size: clamp(2.8rem, 8vw, 6rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; color: #fffdf9; margin-bottom: 1.5rem; }
   .hero h1 .rust { color: #e8714a; font-style: italic; }
-
-  .hero-tagline {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #fffdf9;
-    opacity: 0.5;
-    margin-bottom: 3rem;
-  }
-
-  .hero-meta {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
-  }
-
-  .hero-meta-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #fffdf9;
-    opacity: 0.4;
-    display: block;
-    margin-bottom: 0.3rem;
-  }
-
-  .hero-meta-value {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #fffdf9;
-  }
-
-  .btn {
-    display: inline-block;
-    background: #c4501a;
-    color: #fffdf9;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1rem 2.5rem;
-    transition: background 0.2s;
-  }
+  .hero-tagline { font-family: "DM Mono", monospace; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: #fffdf9; opacity: 0.5; margin-bottom: 3rem; }
+  .hero-meta { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .hero-meta-label { font-family: "DM Mono", monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #fffdf9; opacity: 0.4; display: block; margin-bottom: 0.3rem; }
+  .hero-meta-value { font-family: "Playfair Display", serif; font-size: 1.2rem; font-weight: 700; color: #fffdf9; }
+  .btn { display: inline-block; background: #c4501a; color: #fffdf9; font-family: "DM Mono", monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; padding: 1rem 2.5rem; transition: background 0.2s; }
   .btn:hover { background: #a03e12; }
-
-  /* PITCH - dark bg, light text */
-  .section-dark {
-    background: #2d2218;
-    padding: 5rem 2rem;
-  }
-  .section-dark .inner {
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  .pitch-text {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    line-height: 1.7;
-    color: #e8e0d0;
-    margin-bottom: 1.25rem;
-  }
-  .pitch-text em { color: #e8714a; font-style: italic; }
-  .pitch-aside {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    color: #e8e0d0;
-    opacity: 0.45;
-    font-style: italic;
-    margin-top: 1rem;
-  }
-
-  /* CREAM sections */
-  .section-cream {
-    background: #f0ebe0;
-    padding: 5rem 2rem;
-  }
-  .section-cream .inner {
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  /* WHITE sections */
-  .section-white {
-    background: #fffdf9;
-    padding: 5rem 2rem;
-  }
-  .section-white .inner {
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  .label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #6b7a3a;
-    margin-bottom: 1.5rem;
-  }
-
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 900;
-    line-height: 1.15;
-    color: #1a1208;
-    margin-bottom: 1.5rem;
-  }
+  .section-dark { background: #2d2218; padding: 5rem 2rem; }
+  .section-dark .inner { max-width: 760px; margin: 0 auto; }
+  .pitch-text { font-family: "Playfair Display", serif; font-size: clamp(1.1rem, 2.5vw, 1.5rem); line-height: 1.7; color: #e8e0d0; margin-bottom: 1.25rem; }
+  .section-cream { background: #f0ebe0; padding: 5rem 2rem; }
+  .section-cream .inner { max-width: 760px; margin: 0 auto; }
+  .section-white { background: #fffdf9; padding: 5rem 2rem; }
+  .section-white .inner { max-width: 760px; margin: 0 auto; }
+  .label { font-family: "DM Mono", monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #6b7a3a; margin-bottom: 1.5rem; }
+  h2 { font-family: "Playfair Display", serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.15; color: #1a1208; margin-bottom: 1.5rem; }
   h2 em { font-style: italic; color: #c4501a; }
-
-  /* CARDS */
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-    margin-top: 2rem;
-  }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
   @media (max-width: 560px) { .grid-2 { grid-template-columns: 1fr; } }
-
-  .card {
-    background: #fffdf9;
-    border: 1px solid rgba(26,18,8,0.15);
-    padding: 1.75rem;
-  }
-  .card-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #c4501a;
-    line-height: 1;
-    margin-bottom: 0.75rem;
-  }
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #1a1208;
-    margin-bottom: 0.4rem;
-  }
-  .card-desc {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: #4a3f2f;
-  }
-
-  /* WEEKS */
-  .week {
-    display: grid;
-    grid-template-columns: 85px 1fr;
-    gap: 2rem;
-    padding: 2.25rem 0;
-    border-bottom: 1px solid rgba(26,18,8,0.1);
-  }
+  .card { background: #fffdf9; border: 1px solid rgba(26,18,8,0.15); padding: 1.75rem; }
+  .card-num { font-family: "Playfair Display", serif; font-size: 2.5rem; font-weight: 900; color: #c4501a; line-height: 1; margin-bottom: 0.75rem; }
+  .card-title { font-family: "Playfair Display", serif; font-size: 1.1rem; font-weight: 700; color: #1a1208; margin-bottom: 0.4rem; }
+  .card-desc { font-size: 0.9rem; line-height: 1.7; color: #4a3f2f; }
+  .week { display: grid; grid-template-columns: 85px 1fr; gap: 2rem; padding: 2.25rem 0; border-bottom: 1px solid rgba(26,18,8,0.1); }
   .week:last-child { border-bottom: none; }
-
-  .week-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #6b7a3a;
-    padding-top: 0.4rem;
-    line-height: 1.8;
-  }
-  .week-word {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.9rem;
-    font-weight: 900;
-    font-style: italic;
-    color: #1a1208;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-  .week-desc {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: #4a3f2f;
-  }
-
-  /* WHO */
-  .big-p {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.05rem, 2.5vw, 1.35rem);
-    line-height: 1.75;
-    color: #1a1208;
-    margin-bottom: 1.25rem;
-  }
-  .big-p strong { font-style: italic; }
-
-  /* ERIN */
-  .erin-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 6vw, 3.5rem);
-    font-weight: 900;
-    color: #fffdf9;
-    line-height: 1;
-    margin-bottom: 1.5rem;
-  }
+  .week-date { font-family: "DM Mono", monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: #6b7a3a; padding-top: 0.4rem; line-height: 1.8; }
+  .week-word { font-family: "Playfair Display", serif; font-size: 1.9rem; font-weight: 900; font-style: italic; color: #1a1208; line-height: 1; margin-bottom: 0.5rem; }
+  .week-desc { font-size: 0.9rem; line-height: 1.7; color: #4a3f2f; }
+  .big-p { font-family: "Playfair Display", serif; font-size: clamp(1.05rem, 2.5vw, 1.35rem); line-height: 1.75; color: #1a1208; margin-bottom: 1.25rem; }
+  .erin-name { font-family: "Playfair Display", serif; font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 900; color: #fffdf9; line-height: 1; margin-bottom: 1.5rem; }
   .erin-name em { font-style: italic; color: #e8714a; }
-
-  .erin-bio {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #c8bfb0;
-    margin-bottom: 1rem;
-  }
-
-  .creds {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    margin-top: 1.5rem;
-  }
-  .cred {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    color: #a09080;
-    text-transform: uppercase;
-    padding-left: 1rem;
-    border-left: 2px solid #6b7a3a;
-  }
-
-  /* REGISTER */
-  .register {
-    text-align: center;
-    padding: 6rem 2rem;
-    background: #fffdf9;
-  }
+  .erin-bio { font-size: 1rem; line-height: 1.8; color: #c8bfb0; margin-bottom: 1rem; }
+  .creds { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem; }
+  .cred { font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.08em; color: #a09080; text-transform: uppercase; padding-left: 1rem; border-left: 2px solid #6b7a3a; }
+  .register { text-align: center; padding: 6rem 2rem; background: #fffdf9; }
   .register .label { justify-content: center; display: block; }
   .register h2 { margin-bottom: 0.5rem; }
-
-  .register-sub {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #1a1208;
-    opacity: 0.4;
-    margin-bottom: 3rem;
-  }
-
-  .price-box {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-    border: 2px solid #1a1208;
-    padding: 3rem 3.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .price {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    font-weight: 900;
-    color: #1a1208;
-    line-height: 1;
-  }
-
-  .price-detail {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #4a3f2f;
-    opacity: 0.6;
-    line-height: 2;
-    text-align: center;
-  }
-
-  .register-note {
-    font-size: 0.85rem;
-    color: #4a3f2f;
-    opacity: 0.65;
-    font-style: italic;
-    max-width: 400px;
-    margin: 1.5rem auto 0;
-    line-height: 1.7;
-  }
-
-  footer {
-    background: #1a1208;
-    color: #fffdf9;
-    padding: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .footer-name {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: #b8c46a;
-  }
-  .footer-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #fffdf9;
-    opacity: 0.3;
-  }
+  .register-sub { font-family: "DM Mono", monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #1a1208; opacity: 0.4; margin-bottom: 3rem; }
+  .price-box { display: inline-flex; flex-direction: column; align-items: center; gap: 1.25rem; border: 2px solid #1a1208; padding: 3rem 3.5rem; margin-bottom: 2rem; }
+  .price { font-family: "Playfair Display", serif; font-size: 4rem; font-weight: 900; color: #1a1208; line-height: 1; }
+  .price-detail { font-family: "DM Mono", monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: #4a3f2f; opacity: 0.6; line-height: 2; text-align: center; }
+  .register-note { font-size: 0.85rem; color: #4a3f2f; opacity: 0.65; font-style: italic; max-width: 400px; margin: 1.5rem auto 0; line-height: 1.7; }
+  footer { background: #1a1208; color: #fffdf9; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-name { font-family: "Playfair Display", serif; font-style: italic; color: #b8c46a; }
+  .footer-tag { font-family: "DM Mono", monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #fffdf9; opacity: 0.3; }
 </style>
 </head>
 <body>
 
 <div class="hero">
   <div class="hero-eyebrow"><span style="display:block;">A Writing Workshop &nbsp;·&nbsp; Erin Lane &nbsp;·&nbsp; Santa Rosa, CA</span></div>
-  <h1>Voice.<br><span class="rust">Risk.</span><br>Revision.<br>Release.</h1>
+  <h1>Voice.<br><span class="rust">Risk.</span><br>Revise.<br>Release.</h1>
   <div class="hero-tagline">Four weeks &nbsp;·&nbsp; Four Saturdays &nbsp;·&nbsp; Seven writers</div>
   <div class="hero-meta">
-    <div>
-      <span class="hero-meta-label">Dates</span>
-      <span class="hero-meta-value">Apr 25 – May 16</span>
-    </div>
-    <div>
-      <span class="hero-meta-label">Time</span>
-      <span class="hero-meta-value">Saturdays, 2–5 PM</span>
-    </div>
-    <div>
-      <span class="hero-meta-label">Investment</span>
-      <span class="hero-meta-value">$300</span>
-    </div>
+    <div><span class="hero-meta-label">Dates</span><span class="hero-meta-value">Apr 25 - May 16</span></div>
+    <div><span class="hero-meta-label">Time</span><span class="hero-meta-value">Saturdays, 2-5 PM</span></div>
+    <div><span class="hero-meta-label">Investment</span><span class="hero-meta-value">$300</span></div>
   </div>
   <a href="#register" class="btn">Claim your seat</a>
 </div>
@@ -387,23 +77,23 @@
 <div class="section-dark">
   <div class="inner">
     <div class="label">The premise</div>
-    <p class="pitch-text">Over these four weeks you will unearth yourself as a writer. You may begin them struggling to put pen to paper, but you will finish these four weeks needing a new notebook.</p>
+    <p class="pitch-text">These four weeks will allow you to unearth yourself as a writer. You may begin struggling to put pen to paper but you will finish needing another notebook.</p>
   </div>
 </div>
 
 <div class="section-cream">
   <div class="inner">
-    <div class="label">What's included</div>
+    <div class="label">What is included</div>
     <div class="grid-2">
       <div class="card">
         <div class="card-num">4</div>
         <div class="card-title">Weekly Workshops</div>
-        <p class="card-desc">Three-hour Saturday sessions. Bring whatever you're working on, or nothing at all.</p>
+        <p class="card-desc">Three-hour Saturday sessions. Bring whatever you are working on, or nothing at all.</p>
       </div>
       <div class="card">
         <div class="card-num">1</div>
         <div class="card-title">Private 1:1 Session</div>
-        <p class="card-desc">A 30-minute conversation about the future of your writing and where you want to go next.</p>
+        <p class="card-desc">A 30-minute one-on-one built around you, your goals, and a clear path forward.</p>
       </div>
       <div class="card">
         <div class="card-num">7</div>
@@ -411,11 +101,12 @@
         <p class="card-desc">Limited to seven people. Intensive and intimate by design.</p>
       </div>
       <div class="card">
-        <div class="card-num">✦</div>
+        <div class="card-num">&#10022;</div>
         <div class="card-title">A Public Reading</div>
-        <p class="card-desc">At the end of four weeks, you read your work out loud, in front of humans. Fear no longer suits you.</p>
+        <p class="card-desc">At the end of four weeks, you read your work out loud, in front of humans.</p>
       </div>
     </div>
+    <p style="font-family: DM Mono, monospace; font-size: 0.7rem; color: #4a3f2f; opacity: 0.7; margin-top: 1.5rem; line-height: 1.7;">* The public reading will take place the evening of May 16th after the final workshop. Time and location TBA.</p>
   </div>
 </div>
 
@@ -426,28 +117,28 @@
       <div class="week-date">Week 1<br>Apr 25</div>
       <div>
         <div class="week-word">Voice.</div>
-        <p class="week-desc">Find out what you actually sound like on the page. Not who you think you should be. Who you already are.</p>
+        <p class="week-desc">Find out what you actually sound like on the page. Stop writing from who you think you should be, and start writing from who you already are.</p>
       </div>
     </div>
     <div class="week">
       <div class="week-date">Week 2<br>May 2</div>
       <div>
         <div class="week-word">Risk.</div>
-        <p class="week-desc">Write the thing you've been circling. Bigger, stranger, and more honest than you thought you were allowed to be.</p>
+        <p class="week-desc">Be bigger, stranger, and more honest than you ever thought you could be.</p>
       </div>
     </div>
     <div class="week">
       <div class="week-date">Week 3<br>May 9</div>
       <div>
-        <div class="week-word">Revision.</div>
-        <p class="week-desc">Return to what you've written with new eyes. Shape it. Trust it. Make it yours in a way you can defend.</p>
+        <div class="week-word">Revise.</div>
+        <p class="week-desc">Return to what you have written with new eyes. Trust it. Make it sing.</p>
       </div>
     </div>
     <div class="week">
       <div class="week-date">Week 4<br>May 16</div>
       <div>
         <div class="week-word">Release.</div>
-        <p class="week-desc">Read your work aloud. In a room. To people who are rooting for you. You did the thing.</p>
+        <p class="week-desc">Inhale. Trust yourself. Voice, Risk, Revise... exhale. Release. Fear no longer suits you.</p>
       </div>
     </div>
   </div>
@@ -456,7 +147,7 @@
 <div class="section-cream">
   <div class="inner">
     <div class="label">Who this is for</div>
-    <p class="big-p">Everyone. Bring whatever you're working on. Memoir, poetry, a novel, a screenplay, a love letter cleverly disguised as a to-do list or… nothing at all.</p>
+    <p class="big-p">Everyone. Bring whatever you are working on. Memoir, poetry, a novel, a screenplay, a love letter cleverly disguised as a to-do list or... nothing at all.</p>
   </div>
 </div>
 
@@ -465,12 +156,12 @@
     <div class="label">Your instructor</div>
     <div class="erin-name">Erin <em>Lane.</em></div>
     <p class="erin-bio">Playwright. Poet. Comedian. Improviser. Writing teacher. MFA in Playwriting from Hollins University. Trained at Second City, iO, and Annoyance Productions in Chicago.</p>
-    <p class="erin-bio">Her play <em>Hoist</em> was nominated for the Getchell Award and featured in <em>American Theatre Magazine</em>. Her musical <em>Jersey Shore: The Musical</em> was a Time Out Chicago Top 10.</p>
+    <p class="erin-bio">Her play Hoist was nominated for the Getchell Award and featured in American Theatre Magazine. Her musical Jersey Shore: The Musical was a Time Out Chicago Top 10.</p>
     <div class="creds">
-      <div class="cred">MFA Playwriting · Hollins University</div>
-      <div class="cred">Second City · iO · Annoyance Productions</div>
+      <div class="cred">MFA Playwriting - Hollins University</div>
+      <div class="cred">Second City - iO - Annoyance Productions</div>
       <div class="cred">Dramatists Guild Member</div>
-      <div class="cred">Hoist · Getchell Award Nominee</div>
+      <div class="cred">Hoist - Getchell Award Nominee</div>
     </div>
   </div>
 </div>
@@ -482,10 +173,19 @@
   <div class="price-box">
     <div class="price">$300</div>
     <div class="price-detail">
-      Four Saturdays &nbsp;·&nbsp; Apr 25 – May 16<br>
-      2–5 PM<br>
+      Four Saturdays - Apr 25 to May 16<br>
+      2-5 PM<br>
       + Private 1:1 session included
     </div>
     <a href="mailto:the.erin.lane@gmail.com" class="btn">Email to reserve your seat</a>
   </div>
   <p class="register-note">Payment via CashApp or PayPal upon confirmation. Questions? Email the.erin.lane@gmail.com</p>
+</div>
+
+<footer>
+  <div class="footer-name">Erin Lane - Writing Doula</div>
+  <div class="footer-tag">homework forever.</div>
+</footer>
+
+</body>
+</html>
